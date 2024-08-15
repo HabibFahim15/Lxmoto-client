@@ -7,12 +7,12 @@ const Navbar = () => {
     <nav className="relative bg-white shadow dark:bg-gray-800">
       <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
-          <a href="#">
-            <span className='flex justify-start'>
-              <h1 className='text-8xl md:text-2xl text-orange-500 font-bold'>Lx</h1>
-              <h1 className='text-8xl md:text-2xl text-gray-800 font-bold'>Moto</h1>
+          <Link to={"/"}>
+            <span className='flex justify-start '>
+              <h1 className='text-xl md:text-4xl text-orange-500 font-bold'>Lx</h1>
+              <h1 className='text-xl md:text-4xl  font-bold'>Moto</h1>
             </span>
-          </a>
+          </Link>
 
           <div className="flex lg:hidden">
             <button
