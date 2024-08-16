@@ -1,7 +1,10 @@
-import  { useState } from 'react';
+import  { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProvider';
+import Profile from './Profile';
 
 const Navbar = () => {
+  const {loading, user} = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="relative bg-white shadow dark:bg-gray-800">
@@ -49,10 +52,14 @@ const Navbar = () => {
             <Link to={'/add-bike'} className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="#">
               Add your Bike
             </Link>
-            <Link to={'/signup'} className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="#">
-              Signup 
-              {/* Profile hobe conditional */}
+            {
+              user ? <Profile></Profile>:
+               <Link to={'/signin'} className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="#">
+              Sign In 
+              
             </Link>
+            }
+            
           </div>
 
           <div className="flex justify-center md:block">
