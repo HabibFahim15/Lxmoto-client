@@ -5,7 +5,8 @@ const MotorcycleCard = ({motor}) => {
   const {_id, name,image, price, description, brand,  availability} = motor
   return (
     <div>
-       <div class="relative max-w-xs border border-solid border-gray-200 rounded-2xl transition-all duration-500 ">
+      <Fade cascade>
+      <div class="relative max-w-xs border border-solid border-gray-200 rounded-2xl transition-all duration-500 ">
       <div class="block overflow-hidden">
       <Fade damping={0.5}>
       <img className='w-full h-64 rounded-2xl' src={image} alt="Card image" />
@@ -24,6 +25,7 @@ const MotorcycleCard = ({motor}) => {
      </div>
       </div>
       </div>
+      </Fade>
     </div>
   );
 };
