@@ -6,6 +6,7 @@ import ErrorPage from "../Page/ErrorPage/ErrorPage";
 import Main from "../Layout/Main";
 import SignUp from "../Page/Authentication/SignUp/SignUp";
 import SignIn from "../Page/Authentication/SignIn/SignIn";
+import AllBike from "../Page/AllBike/AllBike";
 
 
 export const router = createBrowserRouter([
@@ -25,7 +26,11 @@ export const router = createBrowserRouter([
       {
         path: '/signin',
         element:<SignIn></SignIn>
+      },
+      {
+        path: 'allbike',
+        element: <AllBike></AllBike>
       }
-    ]
+    ] 
   },
 ]);
