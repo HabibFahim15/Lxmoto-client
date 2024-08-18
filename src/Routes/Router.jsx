@@ -8,6 +8,7 @@ import SignUp from "../Page/Authentication/SignUp/SignUp";
 import SignIn from "../Page/Authentication/SignIn/SignIn";
 import AllBike from "../Page/AllBike/AllBike";
 import AddBike from "../Page/AddBike/AddBike";
+import MyBikes from "../Page/MyBikes/MyBikes";
 
 
 export const router = createBrowserRouter([
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: 'addbike',
         element: <AddBike></AddBike>
+      },
+      {
+        path: 'mybikes',
+        element: <MyBikes></MyBikes>
       }
     ] 
   },
