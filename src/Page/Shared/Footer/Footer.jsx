@@ -3,14 +3,14 @@ const Footer = () => {
   return (
     <footer className="bg-white dark:bg-gray-900">
       <div className="container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row">
-        <a href="#">
+        
         <a href="#">
             <span className='flex justify-start'>
-              <h1 className='text-8xl md:text-2xl text-orange-500 font-bold'>Lx</h1>
-              <h1 className='text-8xl md:text-2xl text-gray-800 font-bold'>Moto</h1>
+              <h1 className='md:text-3xl text-2xl text-orange-500 font-bold'>Lx</h1>
+              <h1 className='md:text-3xl text-2xl text-black dark:text-white font-bold'>Moto</h1>
             </span>
           </a>
-        </a>
+        
 
         <p className="text-sm text-gray-600 dark:text-gray-300">© Copyright 2024. All Rights Reserved.</p>
 
