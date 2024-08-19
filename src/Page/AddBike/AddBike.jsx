@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddBike = () => {
   const { user } = useContext(AuthContext)
@@ -7,16 +8,17 @@ const AddBike = () => {
     
     e.preventDefault();
     const form = e.target;
-    const bikeName = form.bikeName.value;
+    const name = form.bikeName.value;
     const brand = form.brand.value;
     const color = form.color.value;
     const price = form.price.value;
-    const details = form.details.value;
-    const engine = form.engine.value;
-    const speed = form.speed.value;
+    const description = form.details.value;
+    const engineCapacity = form.engine.value;
+    const topSpeed = form.speed.value;
+    const image = form.image.value;
     const userEmail = user?.email;
 
-    const bikeInfo = {bikeName, brand, color, price, details, engine, speed,userEmail};
+    const bikeInfo = {name, brand, color, price, description, engineCapacity,topSpeed,userEmail,image};
     console.log(bikeInfo);
 
     fetch('http://localhost:5000/allBIke', {
@@ -29,6 +31,21 @@ const AddBike = () => {
     .then(res => res.json())
     .then(data => {
       if(data.acknowledged){
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+        Toast.fire({
+          icon: "success",
+          title: "Congratulation || Bike added successfully"
+        });
         form.reset();
       }
     })
@@ -72,6 +89,10 @@ const AddBike = () => {
         <div className="col-span-2">
           <label className="mb-2 inline-block text-sm text-gray-800 dark:text-white sm:text-base">Top Speed*</label>
           <input name="speed" required className="w-full rounded border bg-base-100 px-3 py-2 text-gray-800 dark:text-white outline-none ring-indigo-300 transition duration-100 focus:ring" />
+        </div>
+        <div className="col-span-2">
+          <label className="mb-2 inline-block text-sm text-gray-800 dark:text-white sm:text-base">Image*</label>
+          <input name="image" required className="w-full rounded border bg-base-100 px-3 py-2 text-gray-800 dark:text-white outline-none ring-indigo-300 transition duration-100 focus:ring" />
         </div>
 
         <div className="col-span-2">
