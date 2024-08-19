@@ -5,7 +5,7 @@ const AllBike = () => {
   const [motors, setMotor] = useState([]);
 
   useEffect(() => {
-    fetch('motorcycle.json')
+    fetch('http://localhost:5000/allBIke')
       .then(res => res.json())
       .then(data => setMotor(data))
 
