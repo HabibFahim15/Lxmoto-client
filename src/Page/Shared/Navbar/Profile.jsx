@@ -3,7 +3,7 @@ import { AuthContext } from '../../../Providers/AuthProvider';
 import { Link } from 'react-router-dom';
 
 const Profile = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const {logOut}=useContext(AuthContext)
 
   const handleLogOut=()=>{

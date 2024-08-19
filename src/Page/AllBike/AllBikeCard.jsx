@@ -5,7 +5,7 @@ const AllBikeCard = ({motor}) => {
   const { name,image, price, description, brand,  availability} = motor
   return (
     <div>
-      <Fade direction='down'>
+      <Fade damping={0.5}>
       <div class="relative max-w-xs border border-solid border-gray-200 rounded-2xl transition-all duration-500 ">
       <div class="block overflow-hidden">
       <Fade damping={0.5}>
