@@ -1,5 +1,10 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+
 const AddBike = () => {
+  const { user } = useContext(AuthContext)
   const handleAddQuery = (e) => {
+    
     e.preventDefault();
     const form = e.target;
     const bikeName = form.bikeName.value;
@@ -9,8 +14,24 @@ const AddBike = () => {
     const details = form.details.value;
     const engine = form.engine.value;
     const speed = form.speed.value;
+    const userEmail = user?.email;
 
-    console.log(bikeName, brand, color, price, details, engine, speed);
+    const bikeInfo = {bikeName, brand, color, price, details, engine, speed,userEmail};
+    console.log(bikeInfo);
+
+    fetch('http://localhost:5000/allBIke', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(bikeInfo)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.acknowledged){
+        form.reset();
+      }
+    })
   };
   return (
     <div className=" dark:bg-base-100 py-6 sm:py-8 lg:py-12">
