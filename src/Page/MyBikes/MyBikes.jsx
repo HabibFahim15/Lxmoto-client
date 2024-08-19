@@ -1,5 +1,16 @@
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const MyBikes = () => {
+  const { user } = useContext(AuthContext)
+  useEffect(() => {
+    if (user?.email) {
+      fetch(`http://localhost:5000/allBIke/mybike/${user.email}`)
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error('Error fetching bikes:', error));
+    }
+  }, [user])
   return (
     <div className="bg-base-100 py-6 sm:py-8 lg:py-12">
   <div className="mx-auto max-w-screen-xl px-4 md:px-8">

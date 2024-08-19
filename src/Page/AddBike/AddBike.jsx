@@ -16,10 +16,10 @@ const AddBike = () => {
     const engineCapacity = form.engine.value;
     const topSpeed = form.speed.value;
     const image = form.image.value;
-    const userEmail = user?.email;
+    const email = user?.email;
 
-    const bikeInfo = {name, brand, color, price, description, engineCapacity,topSpeed,userEmail,image};
-    console.log(bikeInfo);
+    const bikeInfo = {name, brand, color, price, description, engineCapacity,topSpeed,email,image};
+    
 
     fetch('http://localhost:5000/allBIke', {
       method: 'POST',
@@ -30,7 +30,7 @@ const AddBike = () => {
     })
     .then(res => res.json())
     .then(data => {
-      if(data.acknowledged){
+      if(data?.insertedId) {
         const Toast = Swal.mixin({
           toast: true,
           position: "top-end",
