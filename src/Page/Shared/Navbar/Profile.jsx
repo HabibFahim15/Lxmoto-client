@@ -15,7 +15,7 @@ const Profile = () => {
       onClick={() => setIsOpen(!isOpen)}
       className="relative z-10 block "
     >
-      <p to={'/signup'} className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="#">
+      <p className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="#">
               Profile 
               
             </p>
@@ -26,12 +26,11 @@ const Profile = () => {
         onClick={() => setIsOpen(false)}
         className="absolute right-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl dark:bg-gray-800 transition transform ease-out duration-100 scale-100"
       >
-        <a
-          href="#"
+        <Link to={'/profile'}
           className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
         >
           View Profile
-        </a>
+        </Link>
         <Link 
           to={'/mybikes'}
           className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
