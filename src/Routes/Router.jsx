@@ -10,6 +10,7 @@ import AllBike from "../Page/AllBike/AllBike";
 import AddBike from "../Page/AddBike/AddBike";
 import MyBikes from "../Page/MyBikes/MyBikes";
 import Profile from "../Page/Profile/Profile";
+import PrivateRoute from "../components/PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -36,15 +37,15 @@ export const router = createBrowserRouter([
       },
       {
         path: 'addbike',
-        element: <AddBike></AddBike>
+        element: <PrivateRoute><AddBike></AddBike></PrivateRoute>
       },
       {
         path: 'mybikes',
-        element: <MyBikes></MyBikes>
+        element: <PrivateRoute><MyBikes></MyBikes></PrivateRoute>
       },
       {
         path: '/profile',
-        element: <Profile></Profile>
+        element: <PrivateRoute><Profile></Profile></PrivateRoute>
       }
     ] 
   },
