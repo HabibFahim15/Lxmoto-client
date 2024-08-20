@@ -14,8 +14,8 @@ const HomeMotor = () => {
   return (
     <div className="container mx-auto px-4 mb-8">
       <div className="grid gap-3 text-center mb-8">
-        <h1 className="text-4xl font-bold">Latest Motorcycles</h1>
-        <p className="text-lg">Explore our latest collection of premium motorcycles.</p>
+        <h1 className="mb-4 text-center text-2xl font-bold dark:text-gray-100 md:mb-6 lg:text-3xl">Latest Motorcycles</h1>
+        <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">Explore our latest collection of premium motorcycles.</p>
       </div>
 
       <div className="flex justify-center">
