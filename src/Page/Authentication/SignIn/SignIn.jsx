@@ -17,6 +17,12 @@ const SignIn = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    if(!email || !password){
+      return alert('Please enter your email and password')
+    }
+    else if(password.length < 6){
+      return alert('Password must be at least 6 characters')
+    }
     signInUser(email, password)
     .then(()=>{
       const Toast = Swal.mixin({
