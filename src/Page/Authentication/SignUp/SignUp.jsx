@@ -4,8 +4,32 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
-  const {signUpUser} = useContext(AuthContext)
-
+  const {signUpUser,googleSignIn} = useContext(AuthContext)
+  const handleGoogleSignIn = () =>{
+    googleSignIn()
+    .then(result =>{
+      const user = result.user;
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Signed in successfully"
+      });
+      navigate(from, {replace: true})
+    })
+    .catch(error =>{
+      console.log(error)
+    })
+  }
   const handleSignUp = event =>{
     event.preventDefault();
     const form = event.target;

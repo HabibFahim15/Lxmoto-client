@@ -6,7 +6,7 @@ const HomeMotor = () => {
   const [motors, setMotor] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/allBIke')
+    fetch('https://lxmoto-server.vercel.app/allBIke')
       .then(res => res.json())
       .then(data => setMotor(data.slice(-8)))
   }, []);
